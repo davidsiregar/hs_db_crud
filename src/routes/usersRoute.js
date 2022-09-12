@@ -12,8 +12,8 @@ router.get("/all", userController.getAllUser);
 
 router.put(
   "/:id/update",
-  authorization.verifyToken,
-  authorization.userUpdateDeleteAuthorize,
+  // authorization.verifyToken,
+  // authorization.userUpdateDeleteAuthorize,
   userController.updateUser
 );
 // router.delete(

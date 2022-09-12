@@ -3,7 +3,7 @@ const { user } = require("../models");
 exports.getDetailUser = async (req, res) => {
   try {
     let getUser = await user.findOne({
-      where: { id: req.user.id },
+      where: { id: req.body.id },
     });
 
     return res.status(200).send({
@@ -32,12 +32,12 @@ exports.updateUser = async (req, res) => {
         email: email,
       },
       {
-        where: { id: req.user.id },
+        where: { id: req.body.id },
       }
     );
 
     let getUser = await user.findOne({
-      where: { id: req.user.id },
+      where: { id: req.body.id },
     });
 
     return res.status(201).send({
@@ -57,7 +57,7 @@ exports.updateUser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
   try {
     let deleted = user.destroy({
-      where: { id: req.user.id },
+      where: { id: req.body.id },
     });
 
     return res.status(200).send({
